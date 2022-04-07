@@ -82,12 +82,12 @@ moz_tb_modif <- moz_tb %>%
 # Plot
 #------------------------------------------------------------------------------
 
-# Notifications of new and relapse cases (with unknown previous ttmt history)
+# Notifications of new, relapse, and unknown previous treatment history cases
 plot_noti <- moz_tb_modif %>% 
   ggplot(aes(x = year, y = new)) +
   geom_line(color = "#69b3a2", size = 1.4) +
   geom_point(shape=21, color="#69b3a2", fill="white", size=3) +
-  theme_bw(base_size = 22) +
+  theme_bw(base_size = 18) +
   theme(axis.title.y=element_blank()) +
   scale_x_continuous(breaks = seq(min(moz_tb_modif$year),
                                   max(moz_tb_modif$year), by = 2),
@@ -98,9 +98,9 @@ plot_noti <- moz_tb_modif %>%
                                                  scientific = FALSE)) +
   xlab("Year")
 
-ggsave("figures/plot_recruitment.png", plot_noti, width = 10, height = 5)
+ggsave("figures/plot_noti.png", plot_noti, width = 10, height = 5)
 
-# Evolution of Main Epidemiological Elements
+# Evolution of main epidemiologic variables
 plot_tb_evol <- moz_tb_modif %>% 
   ggplot(aes(x = year)) +
   # Notifications
@@ -109,8 +109,8 @@ plot_tb_evol <- moz_tb_modif %>%
   geom_ribbon(aes(ymin = e_inc_100k_lo, ymax = e_inc_100k_hi),
                   fill = "#4daf4a",
               alpha = 0.1) +
-  # Treatment
-  geom_line(aes(y = cases_100k, color = "On treatment"),
+  # Notifications
+  geom_line(aes(y = cases_100k, color = "Notifications"),
             size = 1.4) +
   # HIV Positive Proportion
   geom_line(aes(y = e_inc_tbhiv_100k, color = "TB & HIV"),
@@ -127,11 +127,11 @@ plot_tb_evol <- moz_tb_modif %>%
   # Legend
   scale_colour_manual("", 
                       breaks = c(
-                        "Inicidence", "On treatment", "TB & HIV", "Mortality"),
+                        "Inicidence", "Notifications", "TB & HIV", "Mortality"),
                       values = c(
                         "#4daf4a", "#377eb8", "#e41a1c", "#984ea3")) +
   # Aesthetics
-  theme_bw(base_size = 22) +
+  theme_bw(base_size = 14) +
   theme(legend.position="top") +
   scale_x_continuous(breaks = seq(min(moz_tb_modif$year),
                                   max(moz_tb_modif$year), by = 2),
