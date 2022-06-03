@@ -78,6 +78,8 @@ moz_tb_modif <- moz_tb %>%
          # estimated mortality of tb cases (all forms)
          e_mort_100k, e_mort_100k_lo, e_mort_100k_hi,)
 
+saveRDS(moz_tb_modif, file = "data/moz_tb_modif.rds")
+
 #------------------------------------------------------------------------------
 # Plot
 #------------------------------------------------------------------------------
