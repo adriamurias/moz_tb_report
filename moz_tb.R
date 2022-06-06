@@ -46,7 +46,7 @@ moz_tb <- tb_notif %>%
              e_mort_exc_tbhiv_100k, e_mort_exc_tbhiv_100k_lo,
              e_mort_exc_tbhiv_100k_hi, e_mort_tbhiv_100k, e_mort_tbhiv_100k_lo,
              e_mort_tbhiv_100k_hi, e_mort_100k, e_mort_100k_lo, e_mort_100k_hi,
-             e_pop_num),
+             e_pop_num, c_cdr, c_cdr_lo, c_cdr_hi),
     by = "year"
   )
 
@@ -76,7 +76,9 @@ moz_tb_modif <- moz_tb %>%
          # estimated mortality of tb cases living with HIV
          e_mort_tbhiv_100k, e_mort_tbhiv_100k_lo, e_mort_tbhiv_100k_hi,
          # estimated mortality of tb cases (all forms)
-         e_mort_100k, e_mort_100k_lo, e_mort_100k_hi,)
+         e_mort_100k, e_mort_100k_lo, e_mort_100k_hi,
+         # Case detection rate (all forms) [TB ttmt coverage], percent
+         c_cdr, c_cdr_lo, c_cdr_hi)
 
 saveRDS(moz_tb_modif, file = "data/moz_tb_modif.rds")
 
@@ -105,7 +107,7 @@ ggsave("figures/plot_noti.png", plot_noti, width = 10, height = 5)
 # Evolution of main epidemiologic variables
 plot_tb_evol <- moz_tb_modif %>% 
   ggplot(aes(x = year)) +
-  # Notifications
+  # Incidence
   geom_line(aes(y = e_inc_100k, color = "Inicidence"),
             size = 1.4) +
   geom_ribbon(aes(ymin = e_inc_100k_lo, ymax = e_inc_100k_hi),
