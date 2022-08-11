@@ -123,9 +123,9 @@ plot_tb_evol <- moz_tb_modif %>%
                   fill = "#e41a1c",
               alpha = 0.1) +
   # Mortality
-  geom_line(aes(y = e_mort_tbhiv_100k, color = "Mortality"),
+  geom_line(aes(y = e_mort_100k, color = "Mortality"),
             size = 1.4) + 
-  geom_ribbon(aes(ymin = e_mort_tbhiv_100k_lo, ymax = e_mort_tbhiv_100k_hi),
+  geom_ribbon(aes(ymin = e_mort_100k_lo, ymax = e_mort_100k_hi),
                   fill = "#984ea3",
               alpha = 0.1) +
   # Legend
