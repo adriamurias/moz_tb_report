@@ -43,6 +43,7 @@ moz_tb <- tb_notif %>%
       filter(iso3 == "MOZ") %>% 
       select(year, e_inc_100k, e_inc_100k_lo, e_inc_100k_hi,
              e_inc_tbhiv_100k, e_inc_tbhiv_100k_lo, e_inc_tbhiv_100k_hi,
+             e_inc_tbhiv_num, e_inc_tbhiv_num_lo, e_inc_tbhiv_num_hi,
              e_mort_exc_tbhiv_100k, e_mort_exc_tbhiv_100k_lo,
              e_mort_exc_tbhiv_100k_hi, e_mort_tbhiv_100k, e_mort_tbhiv_100k_lo,
              e_mort_tbhiv_100k_hi, e_mort_100k, e_mort_100k_lo, e_mort_100k_hi,
@@ -73,6 +74,8 @@ moz_tb_modif <- moz_tb %>%
          e_inc_100k, e_inc_100k_lo, e_inc_100k_hi,
          # estimated incidence of HIV+ TB cases
          e_inc_tbhiv_100k, e_inc_tbhiv_100k_lo, e_inc_tbhiv_100k_hi,
+         # estimated incidence of HIV+ TB cases
+         e_inc_tbhiv_num, e_inc_tbhiv_num_lo, e_inc_tbhiv_num_hi,
          # estimated mortality of tb cases living with HIV
          e_mort_tbhiv_100k, e_mort_tbhiv_100k_lo, e_mort_tbhiv_100k_hi,
          # estimated mortality of tb cases (all forms)
